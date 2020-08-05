@@ -12,6 +12,47 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Browser Template</h1>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <span class="navbar-brand">MDT</span>
+      </nav>
+<!-- Signup view -->
+ <div class='signup-view container text-center'>
+   <form id='signup'>
+     <div class="form-group">
+       <label for="signup-email">Email</label>
+       <input type="email" class="form-control" name="credentials[email]"
+         placeholder="Please enter your email address">
+     </div>
+     <div class="form-group">
+       <label for="signup-password">Password</label>
+       <input type="password" class="form-control" name="credentials[password]"
+         placeholder="Please enter your password">
+     </div>
+     <div class="form-group">
+       <label for="signup-password">Confirm Password</label>
+       <input type="password" class="form-control" name="credentials[password_confirmation]"
+         placeholder="Please re-enter your password">
+     </div>
+     <button type="submit" class="btn btn-dark">Sign up!</button>
+     <button class="btn btn-light" id='signin-button' role="button">Have a account?</button>
+   </form>
+ </div>
+
+ <!-- Signin view -->
+ <div class='signin-view container text-center'>
+   <form id='signin'>
+     <div class="form-group">
+       <label for="signin-email">Email</label>
+       <input type="text" class="form-control" name="credentials[email]" placeholder="Enter Email">
+     </div>
+     <div class="form-group">
+       <label for="signin-password">Password</label>
+       <input type="password" class="form-control" name="credentials[password]"
+         placeholder="Enter Password">
+     </div>
+     <button type="submit" class="btn btn-dark">Sign In!</button>
+     <a class="btn btn-light" id='signup-button' role="button">Sign Up!</a>
+   </form>
+ </div>
     </body>
 </html>
