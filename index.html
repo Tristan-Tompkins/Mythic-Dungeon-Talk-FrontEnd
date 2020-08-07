@@ -14,29 +14,30 @@
     <body>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <span class="navbar-brand">MDT</span>
+        <button class="btn btn-light" id='signin-butto' role="button">Sign In</button>
       </nav>
 <!-- Signup view -->
- <div class='signup-view container text-center'>
-   <form id='signup'>
-     <div class="form-group">
-       <label for="signup-email">Email</label>
-       <input type="email" class="form-control" name="credentials[email]"
+    <div class='signup-view container text-center'>
+      <form id='signup'>
+        <div class="form-group">
+          <label for="signup-email">Email</label>
+          <input type="email" class="form-control" name="credentials[email]"
          placeholder="Please enter your email address">
-     </div>
-     <div class="form-group">
-       <label for="signup-password">Password</label>
-       <input type="password" class="form-control" name="credentials[password]"
+        </div>
+        <div class="form-group">
+          <label for="signup-password">Password</label>
+          <input type="password" class="form-control" name="credentials[password]"
          placeholder="Please enter your password">
-     </div>
-     <div class="form-group">
+        </div>
+      <div class="form-group">
        <label for="signup-password">Confirm Password</label>
        <input type="password" class="form-control" name="credentials[password_confirmation]"
          placeholder="Please re-enter your password">
-     </div>
-     <button type="submit" class="btn btn-dark">Sign up!</button>
-     <button class="btn btn-light" id='signin-button' role="button">Have a account?</button>
-   </form>
- </div>
+      </div>
+      <button type="submit" class="btn btn-dark">Sign up!</button>
+      <button class="btn btn-light" id='signin-button' role="button">Have a account?</button>
+        </form>
+    </div>
 
  <!-- Signin view -->
  <div class='signin-view container text-center'>
@@ -54,5 +55,18 @@
      <a class="btn btn-light" id='signup-button' role="button">Sign Up!</a>
    </form>
  </div>
+<!-- Create Dungeon post -->
+      <div class='dungeon-post container text-center'
+        <form id="create-dungeon">
+          <div class="form-group">
+            <input name="post[title]" type="text" placeholder="Enter your title here"><br />
+            <input name="post[placeName]" type="text" placeholder="Enter name of establishment here"><br />
+            <input name="post[cityLoc]" type="text" placeholder="Enter city here"><br />
+            <input name="post[stateLoc]" type="text" placeholder="Enter state here"><br />
+            <input name="post[content]" type="text" placeholder="Enter content here"><br />
+            <button class="btn" type="submit">Post</button>
+          </div>
+        </form>
+      </div>
     </body>
 </html>

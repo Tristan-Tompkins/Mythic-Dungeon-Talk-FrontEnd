@@ -1,7 +1,5 @@
 'use strict'
 
-const store = require('../store')
-
 // Sign up and sign in functions
 const signUpSuccess = function () {
     $('#message').text('Successfully signed up!').removeClass('error')
@@ -15,7 +13,7 @@ const signUpFailure = function () {
 const signInSuccess = function (response) {
     $('#message').text('Successfully joined the fight!').removeClass('error')
     store.user = response.user
-    $('.new-game, .logged-in').show()
+    $('.logged-in').show()
     $('.signin-view').hide()
     $('#signin').trigger('reset')
 }
@@ -36,7 +34,7 @@ const signInSwitch = function () {
 const logoutSuccess = function () {
     $('#message').text('Successfully logged out!').removeClass('error')
     $('.signin-view').show()
-    $('.signup-view, .game-board-view, .logged-in, .new-game, #restart, .change-password-view').hide()
+    $('.signup-view, .logged-in, #restart, .change-password-view').hide()
 }
 const logoutFailure = function () {
     $('#message').text('Failed to logout.').addClass('error')
@@ -48,7 +46,7 @@ const changePasswordSuccess = function () {
     $('.change-password-view').hide()
     $('#change-password').trigger('reset')
     if (!store.game.over) {
-        $('.game-board-view, .change-password-button, .restart').show()
+        $('.change-password-button, .restart').show()
     }
     else {
         $('.new-game, .change-password').show()
@@ -59,16 +57,16 @@ const changePasswordFailure = function () {
 }
 // Switch back to previous view before attempting to change password
 const changePasswordSwitch = function () {
-    $('.new-game, .game-board-view, .change-password-button, .restart').hide()
+    $('.change-password-button, .restart').hide()
     $('.change-password-view').show()
 }
 const changePasswordCancel = function () {
     $('.change-password-view').hide()
     if (store.game.over === false) {
-        $('.game-board-view, .change-password-button, .restart').show()
+        $('.change-password-button, .restart').show()
     }
     else {
-        $('.new-game, .change-password-button').show()
+        $('.change-password-button').show()
     }
 }
 
