@@ -8,10 +8,10 @@ const signUpSuccess = function () {
     $('#signup').trigger('reset')
 }
 const signUpFailure = function () {
-    $('#message').text('You are not prepared!').addClass('error')
+    $('#message').text('Plase try again.').addClass('error')
 }
 const signInSuccess = function (response) {
-    $('#message').text('Successfully joined the fight!').removeClass('error')
+    $('#message').text('Successfully signed in!').removeClass('error')
     store.user = response.user
     $('.logged-in').show()
     $('.signin-view').hide()
@@ -45,12 +45,6 @@ const changePasswordSuccess = function () {
     $('#message').text('Password successfully changed!').removeClass('error')
     $('.change-password-view').hide()
     $('#change-password').trigger('reset')
-    if (!store.game.over) {
-        $('.change-password-button, .restart').show()
-    }
-    else {
-        $('.new-game, .change-password').show()
-    }
 }
 const changePasswordFailure = function () {
     $('#message').text('An error has occurred while attempting change your password.  Please try again.').addClass('error')
