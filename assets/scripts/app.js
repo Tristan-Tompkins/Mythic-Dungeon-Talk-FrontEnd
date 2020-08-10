@@ -16,5 +16,10 @@ $(() => {
   $('#sign-out-button').on('click', authEvents.onSignOut)
 
   //post dungeon
-  $('#post').on('submit',postEvents)
+  $('#create-post-form').on('submit', onCreatePost)
+  $('#show-my-post-button').on('click', onShowMyPost)
+  //$('#undo-delete-button').on('click', onUndoDeletePost)
+
+  $('#posts').on('click', '.delete-post-button', onDeletePost)
+  $('#posts').on('submit', '.update-post-form', onUpdatePost)
 })
