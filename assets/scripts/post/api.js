@@ -3,50 +3,48 @@
 const config = require('../config')
 const store = require('../store')
 
-const createPost = data => {
-  console.log('createPost')
+const createPost = formData => {
   return $.ajax({
-    url: config.apiUrl + '/posts',
-    headers: {Authorization: `Token token=${store.user.token}`},
+    url: config.apiUrl + '/dungeons',
     method: 'POST',
-    data: {
-      'post': {
-        'text': data.post.text
-      }
+    data: formData,
+    headers: {
+        Authorization: 'Bearer ' + store.user.token
     }
   })
 }
 
-const updatePost = (data, id) => {
-  console.log('createPosts')
+const updatePost = function (id, formData) {
+  console.log(id, formData)
   return $.ajax({
-    url: config.apiUrl + `/posts/${id}`,
-    headers: {Authorization: `Token token=${store.user.token}`},
+    url: config.apiUrl + '/dungeons/' + id,
     method: 'PATCH',
-    data: {
-      'post': {
-        'text': data.post.text
-      }
+    data: formData,
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
     }
   })
 }
 
-const deletePost = data => {
-  console.log('deletePosts')
+const deletePost = (dungeonId) => {
   return $.ajax({
-    url: config.apiUrl + `/posts/${data}`,
-    headers: {Authorization: `Token token=${store.user.token}`},
-    method: 'DELETE'
+    url: config.apiUrl + '/dungeons/' + dungeonId,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    }
   })
 }
 
-const showMyPost = () => {
-  console.log('showMyPosts')
-  return $.ajax({
-    url: config.apiUrl + `/users/${store.user.handle}`,
-    method: 'GET'
-  })
-}
+const showMyPost = function () {
+    return $.ajax({
+      url: config.apiUrl + '/dungeons',
+      method: 'GET',
+      headers: {
+        Authorization: 'Bearer ' + store.user.token
+      }
+    })
+  }
 
 module.exports = {
   createPost,

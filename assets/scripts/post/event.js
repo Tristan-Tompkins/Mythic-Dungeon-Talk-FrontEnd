@@ -5,66 +5,44 @@ const store = require('../store')
 const api = require('./api')
 const ui = require('./ui')
 
-const onCreatePost = data => {
+const onCreatePost = (event) => {
+  event.preventDefault()
   console.log('onCreatePost')
-
-  if (event.type === 'submit') {
-    event.preventDefault()
-    data = getFormFields(event.target)
-  }
-
-  api.createPost(data)
+  const form = event.target
+  const formData = getFormFields (form)
+  api.createPost(formData)
     .then(ui.createPostSuccess)
-    .then(onShowMyPost)
     .catch(ui.failure)
 }
 
-const onUpdatePost = () => {
-  console.log('onUpdatePost')
+const onUpdatePost = function (event) {
   event.preventDefault()
-  const data = getFormFields(event.target)
-  const id = $(event.target).data('id')
-  api.updatePost(data, id)
-    .then(ui.updatePostSuccess(data, id))
-    .catch(ui.failure)
+  const form = event.target
+  const formData = getFormFields(form)
+  const id = $(event.target).closest('section').data('id')
+  api.updatePost(id, formData)
+    .then(ui.updatePostSuccess)
+    .catch(ui.updatePostFailure)
 }
 
-const onDeletePost = () => {
-  console.log('onDeletePost')
+const onDeletePost = (event) => {
   event.preventDefault()
-  const data = $(event.target).data('id')
-  store.posts.push($(`#post-text-${data}`).text())
-  api.deletePost(data)
-    .then(ui.deletePostSuccess(data))
-    .catch(ui.failure)
+  const dungeonId = $(event.target).data('id')
+  api.deletePost(dungeonId)
+    .then(() => ons(event))
+    .catch(ui.showWorkoutFailure)
 }
 
-const onShowPost = () => {
-  console.log('onShowPost')
-  if (event) { event.preventDefault() }
-  api.showPost()
-    .then(ui.showPostSuccess)
-    .catch(ui.failure)
+const onShowPosts = function (event) {
+  event.preventDefault()
+  api.showWorkouts()
+    .then(ui.showWorkoutsSuccess)
+    .catch(ui.showWorkoutsFailure)
 }
-
-const onShowMyPost = () => {
-  console.log('onShowPost')
-  if (event) { event.preventDefault() }
-  api.showMyPost()
-    .then(ui.showMyPostSuccess)
-    .catch(ui.failure)
-}
-
-  $('#create-post-form').on('submit', onCreatePost)
-  $('#show-my-post-button').on('click', onShowMyPost)
-  $('#undo-delete-button').on('click', onUndoDeletePost)
-
-  $('#posts').on('click', '.delete-post-button', onDeletePost)
-  $('#posts').on('submit', '.update-post-form', onUpdatePost)
 
 module.exports = {
   onCreatePost,
   onUpdatePost,
   onDeletePost,
-  onDeletePost
+  onShowPosts
 }
