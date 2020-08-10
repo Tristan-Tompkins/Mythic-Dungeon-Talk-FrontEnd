@@ -15,7 +15,7 @@
       <nav class="navbar navbar-expand-lg sticky-top" style="background-color: #FCA311">
         <span class="navbar-brand">MDT</span>
         <!-- SIGN IN NAVBAR ITEM-->
-        <div class="nav-item active my-1 mx-3 pre-login">
+        <div class="nav-item active my-1 mx-3 unauth">
           <div class="dropdown">
             <!-- SIGN IN DROPDOWN MENU -->
             <button id="" class="btn btn-dark dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -44,7 +44,7 @@
 
 
         <!-- SIGN UP NAVBAR ITEM-->
-        <div class="nav-item my-1 mx-3 pre-login">
+        <div class="nav-item my-1 mx-3 unauth">
           <div class="dropdown">
             <button class="btn btn-dark dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Sign Up
@@ -57,10 +57,10 @@
                   <label>Email address</label>
                   <input type="email" placeholder="Enter Email" name="credentials[email]" />
                 </div>
-                <div class="form-group">
+                <!-- <div class="form-group">
                   <label>Display Name</label>
                   <input type="text" minlength="3" maxlength="12" placeholder="Display Name" pattern="[A-Za-z0-9_ ]+" name="credentials[handle]">
-                </div>
+                </div> -->
                 <div class="form-group">
                   <label>Password</label>
                   <input type="password" placeholder="Enter Password" name="credentials[password]" />
@@ -80,7 +80,7 @@
 
 
         <!-- CHANGE PASSWORD NAVBAR ITEM- -->
-        <div class="nav-item my-1 mx-3 post-login">
+        <div class="nav-item my-1 mx-3 post-login auth">
           <button class="btn btn-dark dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Change Password
           </button>
@@ -101,44 +101,46 @@
           </div>
           <!-- CHANGE PASSWORD END -->
         </div>
-      </div>
-      <div id="navbar-right-side" class="d-flex post-login ml-auto align-items-center">
+        <!-- SHOW MY POST -->
+        <div id="show-my-post-button-container" class="nav-item my-1 mx-3 post-login">
+          <button id="show-my-post-button" class="auth btn btn-dark">Show My Post</button>
+        </div>
+      <div class="d-flex ml-auto align-items-center">
           <!-- USER NAVBAR ITEM -->
-          <div class="nav-item mx-3 post-login">
-            <span id="user-handle" class="bg-dark px-2 rounded">User Display Name</span>
-          </div>
+          <p id="message"></p>
+          <!-- <div class="nav-item mx-3">
+            <span id="user-handle" class="bg-light px-2 rounded">User Display Name</span>
+          </div> -->
 
           <!-- SIGN OUT NAVBAR ITEM- -->
-          <div class="nav-item mx-3 post-login order-1">
+          <div class="nav-item mx-3 order-1 auth">
             <button id="sign-out-button" class="btn btn-dark">Sign Out</button>
           </div>
         </div>
-
       </nav>
 
 <!-- Create Dungeon post -->
   <div id="back-page" class="">
     <!-- DUNGEON CONTENT -->
-      <div id="dungeons-content">
+      <div id="dungeons-content" class="">
         <div id="dungeons-container" class="">
           <div id="dungeons-header" class="border-bottom text-center">
             <h3 id="dungeons-header-text">All Dungeons Routes</h3>
-            <button id="undo-delete-button" class="btn btn-bark my-2">Undo a deleted dungeon</button>
+            <button id="update-button" class="btn btn-dark my-2 auth">Update</button>
+            <button id="delete-button" class="btn btn-dark my-2 auth">Delete</button>
           </div>
           <div id="dungeons" class="col-12 pb-5"></div>
         </div>
 
-        <form id="create-dungeons-form" class="px-4 py-3 col-6 post-login">
-          <label>Post a public dungeon rooute</label>
+        <form id="create-dungeons-form" class="px-4 py-3 col-6 aut">
+          <label>Post a public dungeon route</label>
           <div class="form-group">
+            <input id="dungeon-name" name="dungeon[name]" type="text" placeholder="Dungeon's Name">
             <textarea required minlength="8" maxlength="256" type="text" placeholder="Write your dungeons descrpition here" name="dungeons[text]" class="textarea col-12"></textarea>
           </div>
-          <input class="btn btn-dark" type="submit" value="Post a dungeon">
+            <button id="post" class="btn btn-dark" type="submit">Post a dungeon</button>
         </form>
-
       </div>
     </div>
-      </div>
-
-    </body>
+  </body>
 </html>

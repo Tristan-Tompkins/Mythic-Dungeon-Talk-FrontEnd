@@ -1,80 +1,59 @@
 'use strict'
 
-// Sign up and sign in functions
-const signUpSuccess = function () {
-    $('#message').text('Successfully signed up!').removeClass('error')
-    $('.signin-view').show()
-    $('.signup-view').hide()
-    $('#signup').trigger('reset')
+const store = require('../store')
+
+
+const signUpSuccess = function (response) {
+  $('#message').text('You are signed up!')
+  $('form').trigger('reset')
 }
+
 const signUpFailure = function () {
-    $('#message').text('Plase try again.').addClass('error')
+  $('#message').text('Please try again.')
 }
+
 const signInSuccess = function (response) {
-    $('#message').text('Successfully signed in!').removeClass('error')
-    store.user = response.user
-    $('.logged-in').show()
-    $('.signin-view').hide()
-    $('#signin').trigger('reset')
+  store.user = response.user
+  $('#message').text('You are all signed in!')
+  $('form').trigger('reset')
+  $('.auth').show()
+  $('.unauth').hide()
 }
+
 const signInFailure = function () {
-    $('#message').text('Could not log in.  Please try again.').addClass('error')
-}
-// Functions to switch between signing up and signing in
-const signUpSwitch = function () {
-    $('.signin-view').hide()
-    $('.signup-view').show()
-}
-const signInSwitch = function () {
-    $('.signin-view').show()
-    $('.signup-view').hide()
+  $('#message').text('Please try again.')
+  $('form').trigger('reset')
 }
 
-// Logout functions
-const logoutSuccess = function () {
-    $('#message').text('Successfully logged out!').removeClass('error')
-    $('.signin-view').show()
-    $('.signup-view, .logged-in, #restart, .change-password-view').hide()
-}
-const logoutFailure = function () {
-    $('#message').text('Failed to logout.').addClass('error')
+const changePasswordSuccess = function (response) {
+  $('#message').text('Your password has been changed.')
+  $('form').trigger('reset')
 }
 
-// Change password functions
-const changePasswordSuccess = function () {
-    $('#message').text('Password successfully changed!').removeClass('error')
-    $('.change-password-view').hide()
-    $('#change-password').trigger('reset')
-}
 const changePasswordFailure = function () {
-    $('#message').text('An error has occurred while attempting change your password.  Please try again.').addClass('error')
+  $('#message').text('Please try again.')
+  $('form').trigger('reset')
 }
-// Switch back to previous view before attempting to change password
-const changePasswordSwitch = function () {
-    $('.change-password-button, .restart').hide()
-    $('.change-password-view').show()
+
+const signOutSuccess = function (response) {
+  $('#message').text('Come again!')
+  $('.auth').hide()
+  $('.unauth').show()
 }
-const changePasswordCancel = function () {
-    $('.change-password-view').hide()
-    if (store.game.over === false) {
-        $('.change-password-button, .restart').show()
-    }
-    else {
-        $('.change-password-button').show()
-    }
+
+const signOutFailure = function () {
+  $('#message').text('Please try again.')
 }
+
+
 
 module.exports = {
-    signUpFailure,
-    signUpSuccess,
-    signInFailure,
-    signInSuccess,
-    signUpSwitch,
-    signInSwitch,
-    logoutFailure,
-    logoutSuccess,
-    changePasswordFailure,
-    changePasswordSuccess,
-    changePasswordSwitch,
-    changePasswordCancel,
+  signUpSuccess,
+  signUpFailure,
+  signInSuccess,
+  signInFailure,
+  signOutSuccess,
+  signOutFailure,
+  changePasswordSuccess,
+  changePasswordFailure
 }
