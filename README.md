@@ -6,8 +6,8 @@ This application will allow the user to read, create, update and delete posts. I
 
 - [Client Repo](https://github.com/Tristan-Tompkins/Mythic-Dungeon-Talk-FrontEnd)
 - [API Repo](https://github.com/Tristan-Tompkins/Mythic-Dungeon-Talk-api)
-- [Deployed API]
-- [Deployed Client]
+- [Deployed API](https://whispering-stream-34803.herokuapp.com/)
+- [Deployed Client]()
 
 ## Planning Story
 
