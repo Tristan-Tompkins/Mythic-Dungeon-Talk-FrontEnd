@@ -42,10 +42,5 @@ This application will allow the user to read, create, update and delete posts. I
 
 ## Images
 
-#### Wireframe:
-![wireframe](https://i.imgur.com/9y3VQVV.jpg)
-
----
-
-#### ERD:
-![ERD](https://i.imgur.com/aQc7vEd.jpg)
+#### Wireframe & ERD:
+![wireframe](https://miro.com/app/board/o9J_koWi9Uw=/)
