@@ -11,7 +11,7 @@ This application will allow the user to read, create, update and delete posts. I
 
 ## Planning Story
 
- ![Planning](https://miro.com/app/board/o9J_koWi9Uw=/)
+ ![Planning](https://imgur.com/xjEZsDk)
 
 ### User Stories
 
@@ -43,4 +43,4 @@ This application will allow the user to read, create, update and delete posts. I
 ## Images
 
 #### Wireframe & ERD:
-![wireframe](https://miro.com/app/board/o9J_koWi9Uw=/)
+![wireframe](https://imgur.com/xjEZsDk)
