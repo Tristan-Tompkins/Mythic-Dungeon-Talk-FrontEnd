@@ -15,7 +15,7 @@ const createPost = (formData) => {
 }
 
 const updatePost = function (id, formData) {
-  console.log(id, formData)
+  //console.log(id, formData)
   return $.ajax({
     url: config.apiUrl + '/dungeons/' + id,
     method: 'PATCH',
