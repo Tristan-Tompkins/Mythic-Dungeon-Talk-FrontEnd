@@ -1,0 +1,104 @@
+@import '~bootstrap/scss/bootstrap';
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+$main-font: 'Roboto', cursive;
+$orange-web: rgba(252,163,17,1);
+$oxford-blue: rgba(20,33,61,1);
+$platinum: rgba(229,229,229,1);
+
+body {
+  background-size: cover;
+  font-family: $main-font;
+}
+.my-icon {
+  height: 35px;
+  width: 35px;
+}
+.auth {
+  display: none;
+}
+.navbar-brand {
+  font-weight: bold;
+}
+#back-page {
+  display: flex;
+  justify-content: center;
+  background-size: cover;
+  background-repeat: repeat;
+  background: $oxford-blue;
+  margin-bottom: 50px;
+  min-height: calc(100vh - 100px);
+}
+
+.post {
+  background-color: $oxford-blue;
+  color: $platinum;
+}
+
+.post:hover {
+  background-color: $orange-web;
+  color: $oxford-blue;
+
+  & > * {
+    background-color: $orange-web;
+    color: $oxford-blue;
+  }
+}
+
+#dungeons-content {
+  max-height: 100%;
+  width: 90%;
+  padding: 2% 0;
+  display: flex;
+  flex-direction: row;
+  background-color: $platinum;
+  background-repeat: repeat;
+  overflow: auto;
+}
+
+#dungeons-container {
+  width: 100%;
+}
+
+#dungeons {
+  padding: 5%;
+}
+
+.dungeons-text {
+  max-width: 100%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+#dungeon-name {
+  width: 100%;
+}
+
+.front-end-repo {
+  color: $platinum
+}
+
+.back-end-repo {
+  color: $platinum
+}
+
+.footer {
+  position: fixed;
+  height: 50px;
+  bottom: 0;
+  left: 0;
+  background-color: #FCA311;
+  color: $platinum;
+  width: 100vw;
+
+  & > * {
+    text-align: center;
+    text-decoration: none;
+    color: $oxford-blue;
+  }
+
+  & > *:hover {
+    color: $platinum;
+    text-decoration: none;
+    cursor: pointer;
+  }
+}
