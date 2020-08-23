@@ -5,44 +5,66 @@ const store = require('../store')
 const api = require('./api')
 const ui = require('./ui')
 
-const onCreatePost = (event) => {
-  event.preventDefault()
-  console.log('onCreatePost')
+const onCreatePost = function (event) {
+  //event.preventDefault()
+  if (event) { event.preventDefault() }
+  //event.preventDefault()
   const form = event.target
-  const formData = getFormFields (form)
+  const formData = getFormFields(form)
+  //console.log(formData)
   api.createPost(formData)
     .then(ui.createPostSuccess)
     .catch(ui.failure)
 }
 
 const onUpdatePost = function (event) {
-  event.preventDefault()
+  if (event) { event.preventDefault() }
   const form = event.target
   const formData = getFormFields(form)
-  const id = $(event.target).closest('section').data('id')
+  const id = $(event.target).data('id')
   api.updatePost(id, formData)
     .then(ui.updatePostSuccess)
-    .catch(ui.updatePostFailure)
+    .catch(ui.failure)
 }
 
 const onDeletePost = (event) => {
-  event.preventDefault()
+  if (event) { event.preventDefault() }
+  //console.log(event)
   const dungeonId = $(event.target).data('id')
   api.deletePost(dungeonId)
-    .then(() => ons(event))
-    .catch(ui.showWorkoutFailure)
+    .then(ui.deletePostSuccess)
+    .catch(ui.failure)
 }
 
-const onShowPosts = function (event) {
-  event.preventDefault()
-  api.showWorkouts()
-    .then(ui.showWorkoutsSuccess)
-    .catch(ui.showWorkoutsFailure)
+const onShowPost = () => {
+  if (event) { event.preventDefault() }
+  api.showPost()
+    .then(ui.showPostSuccess)
+    .catch(ui.failure)
 }
+const onShowMyPost = () => {
+  if (event) { event.preventDefault() }
+  api.showMyPost()
+    .then(ui.showMyPostSuccess)
+    .catch(ui.failure)
+}
+
+// const addHandlers = () => {
+//   $('#create-dungeons-form').on('submit', onCreatePost)
+//   $('#show-all-post-button').on('click', onShowPost)
+//   $('#show-my-post-button').on('click', onShowMyPost)
+//   $('#undo-delete-button').on('click', onUndoDeletePost)
+//
+//   $('#dungeons').on('click', '.delete-post-button', onDeletePost)
+//   $('#dungeons').on('submit', '.update-post-form', onUpdatePost)
+//
+//   onShowPosts()
+// }
 
 module.exports = {
   onCreatePost,
   onUpdatePost,
   onDeletePost,
-  onShowPosts
+  onShowPost,
+  onShowMyPost
 }

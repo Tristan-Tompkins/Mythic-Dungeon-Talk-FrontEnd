@@ -3,7 +3,7 @@
 const config = require('../config')
 const store = require('../store')
 
-const createPost = formData => {
+const createPost = (formData) => {
   return $.ajax({
     url: config.apiUrl + '/dungeons',
     method: 'POST',
@@ -27,6 +27,7 @@ const updatePost = function (id, formData) {
 }
 
 const deletePost = (dungeonId) => {
+  //console.log("api", dungeonId)
   return $.ajax({
     url: config.apiUrl + '/dungeons/' + dungeonId,
     method: 'DELETE',
@@ -46,9 +47,20 @@ const showMyPost = function () {
     })
   }
 
+  const showPost = () => {
+  return $.ajax({
+    url: config.apiUrl + '/dungeons',
+    method: 'GET',
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   createPost,
   updatePost,
   deletePost,
-  showMyPost
+  showMyPost,
+  showPost
 }

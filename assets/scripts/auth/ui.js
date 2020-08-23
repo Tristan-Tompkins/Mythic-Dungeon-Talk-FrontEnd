@@ -39,6 +39,8 @@ const signOutSuccess = function (response) {
   $('#message').text('Come again!')
   $('.auth').hide()
   $('.unauth').show()
+  store.user = null
+  $('#dungeons').hide()
 }
 
 const signOutFailure = function () {

@@ -13,7 +13,7 @@
     </head>
     <body>
       <nav class="navbar navbar-expand-lg sticky-top" style="background-color: #FCA311">
-        <span class="navbar-brand">MDT<img class="my-icon" src="public/img/talk.PNG"></span>
+        <span class="navbar-brand">MDT<img class="my-icon" src="public\img\Talk.png"></span>
         <!-- SIGN IN NAVBAR ITEM-->
         <div class="nav-item active my-1 mx-3 unauth">
           <div class="dropdown">
@@ -101,9 +101,13 @@
           </div>
           <!-- CHANGE PASSWORD END -->
         </div>
-        <!-- SHOW MY POST -->
+        <!-- SHOW MY DUNGEON -->
         <div id="show-my-post-button-container" class="nav-item my-1 mx-3 post-login">
-          <button id="show-my-post-button" class="auth btn btn-dark">Show My Post</button>
+          <button id="show-my-post-button" class="auth btn btn-dark">Show My Dungeons</button>
+        </div>
+        <!-- SHOW ALL DUNGEON -->
+        <div id="show-all-post-button-container" class="nav-item my-1 mx-3 post-login">
+          <button id="show-all-post-button" class="auth btn btn-dark">Show All Dungeons</button>
         </div>
       <div class="d-flex ml-auto align-items-center">
           <!-- USER NAVBAR ITEM -->
@@ -120,27 +124,34 @@
       </nav>
 
 <!-- Create Dungeon post -->
-  <div id="back-page" class="auth">
+  <div id="back-page" class="">
     <!-- DUNGEON CONTENT -->
-      <div id="dungeons-content" class="">
-        <div id="dungeons-container" class="">
+      <div id="dungeons-content"  class="">
+        <div id="dungeons-container" class="auth">
           <div id="dungeons-header" class="border-bottom text-center">
-            <h3 id="dungeons-header-text">All Dungeons Routes</h3>
-            <button id="update-button" class="btn btn-dark my-2 auth">Update</button>
-            <button id="delete-button" class="btn btn-dark my-2 auth">Delete</button>
+            <h3 id="dungeons-header-text"></h3>
           </div>
           <div id="dungeons" class="col-12 pb-5"></div>
         </div>
 
         <form id="create-dungeons-form" class="px-4 py-3 col-6 auth">
-          <label>Post a public dungeon route</label>
+          <h3 class="dung">Post a public dungeon route</h3>
           <div class="form-group">
-            <input id="dungeon-name" name="dungeon[name]" type="text" placeholder="Dungeon's Name">
-            <textarea required minlength="8" maxlength="256" type="text" placeholder="Write your dungeons descrpition here" name="dungeons[text]" class="textarea col-12"></textarea>
+            <input id="dungeon-name" name="dungeon[dungeonName]" type="text" placeholder="Dungeon's Name">
+            <textarea required minlength="8" maxlength="256" type="text" placeholder="Write your dungeons descrpition here" name="dungeon[description]" class="textarea col-12"></textarea>
           </div>
             <button id="post" class="btn btn-dark" type="submit">Post a dungeon</button>
         </form>
       </div>
+    </div>
+    <!-- FOOTER -->
+    <div id="footer-links" class="footer d-flex justify-content-around">
+      <a id="front-end-repo" href="https://github.com/Tristan-Tompkins/Mythic-Dungeon-Talk-FrontEnd" target="_blank">
+        <h2>Link to Front-end Github Repo</h2>
+      </a>
+      <a id="back-end-repo" href="https://github.com/Tristan-Tompkins/Mythic-Dungeon-Talk-api" target="_blank">
+        <h2>Link to Back-end Github Repo</h2>
+      </a>
     </div>
   </body>
 </html>

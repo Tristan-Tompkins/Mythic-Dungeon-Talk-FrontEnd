@@ -16,10 +16,11 @@ $(() => {
   $('#sign-out-button').on('click', authEvents.onSignOut)
 
   //post dungeon
-  $('#create-post-form').on('submit', postEvents.onCreatePost)
+  $('#create-dungeons-form').on('submit', postEvents.onCreatePost)
   $('#show-my-post-button').on('click', postEvents.onShowMyPost)
-  //$('#undo-delete-button').on('click', onUndoDeletePost)
+  $('#show-all-post-button').on('click',
+  postEvents.onShowPost)
 
-  // $('#posts').on('click', '.delete-post-button', onDeletePost)
-  // $('#posts').on('submit', '.update-post-form', onUpdatePost)
+  $('#dungeons').on('click', '.delete-post-button', postEvents.onDeletePost)
+  $('#dungeons').on('submit', '.update-post-form', postEvents.onUpdatePost)
 })
